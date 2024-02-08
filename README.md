@@ -1,16 +1,17 @@
-# Проект Tube API Django
-Задачей данного проекта является разработка API для сервиса Tube. В этом сервисе пользователи могут
-опубликововать посты, комментировать их, делать подписки. API для этого сервиса реализует получение, создание, обновление и удаление информации. 
+# Project Tube API Django
+The purpose of this project is to develop an API for the Tube service. 
+In this service, users can publish posts, comment on them, and make subscriptions. 
+The API for this service implements the retrieval, creation, updating, and deletion of information.
 
-## Стек технологий:
+## Technology Stack:
 ```
 Python 3.9.10
 Django 3.2.16
 djoser 2.1.0
 ```
 
-## Как запустить проект:
-Клонировать репозиторий и перейти в него в командной строке:
+## How to run the project:
+Clone the repository and navigate to it in the command line:
 ```
 git clone git@github.com:Ice444-222/Tube-API-Django.git
 ```
@@ -19,14 +20,14 @@ git clone git@github.com:Ice444-222/Tube-API-Django.git
 cd Tube-API-Django
 ```
 
-Cоздать и активировать виртуальное окружение:
+Create and activate a virtual environment:
 ```
 python3 -m venv env
 ```
 ```
 source env/bin/activate
 ```
-Установить зависимости из файла requirements.txt:
+Install dependencies from the requirements.txt file:
 ```
 python3 -m pip install --upgrade pip
 ```
@@ -35,21 +36,21 @@ python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Выполнить миграции:
+Apply migrations:
 
 ```
 python3 manage.py migrate
 ```
-Запустить проект:
+Run the project:
 
 ```
 python3 manage.py runserver
 ```
 
-## Примеры запросов
+## Example Requests
 
-### Запрос списка всех публикаций
-Получение списка всех публикаций Post. Выдача может работать с offset и limit.
+### Request for the list of all publications
+Get a list of all Post publications. Pagination can work with offset and limit.
 
 **GET http://127.0.0.1:8000/api/v1/posts/**
 
@@ -72,8 +73,8 @@ python3 manage.py runserver
 }
 ```
 
-### Удаление публикации
-Удаление публиакции Post по id. Возможно только авторизированным пользователем - автором публикации.
+### Deletion of a publication
+Delete the Post publication by id. Only an authorized user who is the author of the publication can perform this action.
 
 **Delete http://127.0.0.1:8000/api/v1/posts/{id}/**
 
@@ -85,7 +86,7 @@ instance.author != self.request.user
 
 **Response**
 ```
-'Изменение чужого контента запрещено!'
+'Changing someone else's content is forbidden!'
 ```
 **Request**
 ```
@@ -99,8 +100,8 @@ UserIsNotAuthenticated
 }
 ```
 
-### Создание комментария
-Создание комментария к публикации Post по post_id. Может быть совершенна только авторизированным пользователем.
+### Creating a comment
+Create a comment for the Post publication by post_id. Only an authorized user can perform this action.
 
 **Post http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/**
 
@@ -122,8 +123,8 @@ UserIsNotAuthenticated
 }
 ```
 
-### Запрос подписок пользователя
-Возвращает все подписки пользователя, сделавшего запрос. Анонимные запросы запрещены
+### User subscription request
+Returns all subscriptions of the user making the request. Anonymous requests are not allowed.
 
 **Get http://127.0.0.1:8000/api/v1/follow/**
 
